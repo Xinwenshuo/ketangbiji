@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#process{
+			width:400px ;height: 20px;border: 1px solid lightgray;border-radius: 5px;
+		}
+		#test{height:20px;width: 1%;background:#2bf666;}
+	</style>
+</head>
+<body>
+	<div id="process">
+		<div id="test"></div>
+	</div>
+	<button onclick="box()">下载</button>
+</body>
+<script>
+	function box(){
+		div = document.getElementById('test');
+		num = 1
+		timme = setInterval(function(){
+			num++;
+			div.style.width=num+'%';
+		
+		if(num >=100){
+			clearInterval(timme);
+			alert('下载成功')
+		}
+	},100);
+	}
+</script>
+</html>

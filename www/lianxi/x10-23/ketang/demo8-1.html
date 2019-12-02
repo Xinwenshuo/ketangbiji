@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">20</div>
+</body>
+	<script>
+		box = document.getElementById('box');
+		num = box.innerHTML;
+		timme = setInterval(function(){
+			num--;
+			console.log(num);
+			box.innerHTML = num;
+			if(num==0){
+				clearInterval(timme);
+				alert('计时结束');
+			}
+		},500)
+	</script>
+</html>

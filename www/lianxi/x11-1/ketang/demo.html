@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#left{width: 200px;height:200px;border:1px solid red;}
+		#des{width:200px;height:200px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	<!-- <p>昨天晚上你们有没有过节呀</p>
+	<p>昨天我看到一个朋友圈里面这么说</p>
+	<p>我怎么没有见到你们在七月十五发朋友圈</p>
+	<p>昨天是国外的鬼节给你们过的挺开心</p> -->
+	<div id="left">
+		<button onclick="move(this)">点击移动</button>
+	</div>
+	<div id="des"></div>
+</body>
+<script>
+	var div = document.createElement('div');
+	// div.innerHTML = '小郭拉着小柒的手悄悄地走在没有人的街上';
+	// document.body.appendChild(div);
+	document.body.insertBefore(div,document.body.firstChild);
+	document.body.insertBefore(div,document.body.children[2]);
+	function move(obj){
+		var des = document.getElementById('des');
+		des.appendChild(obj);
+	}
+</script>
+</html>

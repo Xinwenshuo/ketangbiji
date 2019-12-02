@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div" style="width: 100px;height: 100px;background:red"></div>
+</body>
+<script>
+	div = document.getElementById('div');
+		setInterval(function(){
+			arr = ['red','green','blue','yellow','pink','#2bf666'];
+			a = Math.floor(Math.random()*arr.length);
+			div.style.background = arr[a];
+		},200);
+</script>
+</html>

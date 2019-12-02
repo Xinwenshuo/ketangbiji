@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;height: 100px;background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" style="width:200px"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	// alert(box.style.height);
+	// var css = document.defaultView.getComputedStyle(box);
+	// 	alert(css.height);
+	// var css = box.currentStyle;
+		// alert(css.height);
+		var css = box.currentStyle||document.defaultView.getComputedStyle(box);
+		alert(css.backgroundColor);
+</script>
+</html>

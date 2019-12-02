@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="check()">结束单次定时</button>
+	<button onclick="check1()">结束多次定时</button>
+</body>
+	<script>
+
+		Timeout = setTimeout(function(){
+			console.log('大家好');
+		},1000);
+		setTimeout(test,1100);
+		function test(){
+			console.log('大家不好');
+		}
+		Interval = setInterval(function(){
+			console.log('Hello word');
+		},1000);
+		a = setInterval(a,2000);
+		function a(){
+			console.log('绝对是浪费');
+		}
+		function check(){
+			clearTimeout(Timeout);
+		}
+		function check1(){
+			clearInterval(Interval);
+			clearInterval(a);
+		}
+
+	</script>
+</html>

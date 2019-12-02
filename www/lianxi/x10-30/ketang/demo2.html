@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onkeydown = function(e){
+		var e = e || event;
+		// alert(e.keyCode);
+		// alert(e.shiftKey);
+		// alert(e.ctlrKey);
+		// alert(e.altKey);
+		if(e.shiftKey){
+			if(e.keyCode == 66){
+				// alert('我按了B');
+			}
+		}
+		console.log('我按了键盘')
+	}
+	document.onkeyup = function(){
+		console.log('我抬起来键盘');
+	}
+	document.onkeypress = function(){
+		console.log('我按了一次键盘');
+	}
+</script>
+</html>

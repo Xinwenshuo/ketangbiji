@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table id="ta" width="800" border="1" align="center"></table>
+</body>
+<script>
+	var ta = document.getElementById('ta');
+	var row = ta.insertRow();
+	var td = row.insertCell();
+	td.innerHTML = '111111111';
+	var td1 = row.insertCell();
+	td1.innerHTML = '22222222';
+	var td2 = row.insertCell();
+	td2.innerHTML = '33333333';
+	var row1 = ta.insertRow();
+	var td3 = row1.insertCell();
+	td3.innerHTML = '44444444';
+	var td4 = row1.insertCell();
+	td4.innerHTML = '44444444';
+	var td5 = row1.insertCell();
+	td5.innerHTML = '44444444';
+	// row.deleteCell(0);
+	// ta.deleteRow(1);
+	row.deleteCell(td.cellIndex);
+</script>
+</html>

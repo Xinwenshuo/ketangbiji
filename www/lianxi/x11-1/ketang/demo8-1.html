@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<table border="1" width="800px" id="ta" >
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Sex</td>
+			<td>Age</td>
+			<td>City</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>郭冰</td>
+			<td>男</td>
+			<td>21</td>
+			<td>山西</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>郭冰</td>
+			<td>男</td>
+			<td>21</td>
+			<td>山西</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>郭冰</td>
+			<td>男</td>
+			<td>21</td>
+			<td>山西</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>郭冰</td>
+			<td>男</td>
+			<td>21</td>
+			<td>山西</td>
+		</tr>
+	</table>
+</body>
+<script>
+	var ta = document.getElementById('ta');
+		for (var i = 0; i <ta.rows.length; i++) {
+		// console.log(ta.rows[i])
+			for (var j = 0; j < ta.rows[i].cells.length; j++) {
+				// console.log(ta.rows[i].cells[j])
+				ta.rows[i].cells[j].ondblclick = function(){
+					this.innerHTML = '<input type="text" id="inp" value="'+this.innerHTML+'">' ;
+					var inp = document.getElementById('inp');
+					inp.focus();
+					inp.onblur = function(){
+						this.parentNode.innerHTML=this.value;
+					}
+				}
+			}
+		}
+	
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#parent{
+			width: 400px;height: 400px; background: yellow;
+		}
+		#son{
+			width: 200px;height: 200px;background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="parent">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var parent = document.getElementById('parent');
+	parent.onmouseenter = function(){
+		console.log('移入');
+	}
+	parent.onmouseleave = function(){
+		console.log('移出');
+	}
+</script>
+</html>

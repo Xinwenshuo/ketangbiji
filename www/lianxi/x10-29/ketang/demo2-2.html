@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div">人名单</div>
+	<button id="func" onclick="box()">开始</button>
+	<button onclick="box1()">停止</button>
+</body>
+<script>
+	var div = document.getElementById('div');
+	var func = document.getElementById('func');
+	var arr = ['11111','22222','33333','444444'];
+	var timmer;
+	function box(){
+		if(timmer == undefined){
+			timmer = setInterval(function(){
+				var a = Math.floor(Math.random()*arr.length);
+				div.innerHTML = arr[a];
+			},100);
+		}
+	}
+	function box1(){
+		clearInterval(timmer);
+		timmer = undefined;
+	}
+</script>
+</html>

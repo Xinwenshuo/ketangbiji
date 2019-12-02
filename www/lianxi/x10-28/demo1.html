@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div"></div>
+	<button id="dd"></button>
+</body>
+<script>
+	div = document.getElementById('div');
+	dd = document.getElementById('dd');
+	function box(){
+	// var date = new Date;
+	// seconds = date.getSeconds();
+		num = 60;
+		minute =2;
+		// minute = 60;
+		// miao = num-seconds;
+		// document.write(seconds);
+		tmme = setInterval(function(){
+			num -=1;
+			// document.write(num);
+			div.innerHTML = '倒计时'+minute+':'+num;
+			if(minute == 0 && num==0){
+				num ==0;
+				clearInterval(tmme);
+				dd.innerHTML = "抢购";
+			}
+			if(num == 0){
+				num =5
+				minute -=1;
+			// document.write(minute);
+			}
+		},100);
+	}
+	box();
+</script>
+</html>

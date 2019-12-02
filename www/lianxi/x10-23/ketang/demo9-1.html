@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>【新消息】</title>
+</head>
+<body>
+	
+</body>
+	<script>
+		boot = true;
+		setInterval(function(){
+			if(boot){
+				document.title="【新消息】";
+				boot = false;
+			}else{
+				document.title="【　　　】";
+				boot = true;
+			}
+		},500);
+	</script>
+</html>

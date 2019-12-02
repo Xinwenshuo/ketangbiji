@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div{
+			width:100px;height: 100px;position: absolute; 
+		}
+	</style>
+</head>
+<body>
+	<div id="div" style="left:0px;top:0px;"><img src="./3.gif" alt=""></div>
+</body>
+<script>
+	div = document.getElementById('div');
+	num = 10;
+	setInterval(function(){
+		div.style.left=parseInt(div.style.left)+num+"px";
+	},100)
+</script>
+</html>

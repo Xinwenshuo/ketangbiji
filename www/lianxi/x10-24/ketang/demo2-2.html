@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>不平等条约</p>
+	<p>不平等条约</p>
+	<p>不平等条约</p>
+	<p>不平等条约</p>
+	<p>不平等条约</p>
+	<p>不平等条约</p>
+	<button id="box">10秒后继续下一步</button>
+</body>
+	<script>
+		box = document.getElementById('box');
+		box.disabled = true;
+		num = 10;
+		timme = setInterval(function(){
+			num--;
+			box.innerHTML = num+'秒后继续下一步';
+			if(num<=0){
+				clearInterval(timme);
+				box.disabled = false;
+				box.innerHTML = '下一步';
+			}
+		},500);
+	</script>
+</html>

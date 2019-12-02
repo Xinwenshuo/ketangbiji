@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		document.write(new Date())
+	</script>
+</head>
+<body>
+	<img src="./images/1.jpg" width="200" id="img" alt="">
+	<img src="./images/2.jpg" width="200" id="img2" alt="">
+	<p id="p1">我之前只能进行排版操作现在老子升级了可以跳转了</p>
+</body>
+<script>
+	document.write('获取完整路径'+window.location.href+'<br>');
+	document.write('获取路径'+window.location.pathname+'<br>')
+	document.write('获取协议'+window.location.protocol+'<br>')
+	document.write('获取主机名'+window.location.hostname+'<br>')
+	var img = document.getElementById('img');
+	var img1 = document.getElementById('img2')
+	img.onclick =function(){
+		location =  "http://www.vip.com";
+	}
+	img1.onclick = function(){
+		location.reload();
+	}
+	setInterval(function(){
+		location.reload();
+	},5000)
+	var p=document.getElementById('p1');
+	p.onclick = function(){
+		location = 'http://www.12306.cn'
+	}
+</script>
+</html>

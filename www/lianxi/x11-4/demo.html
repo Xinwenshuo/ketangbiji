@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// var ajax = new XMLHttpRequest();
+	// ajax.open('get','./ajax.php',true);
+	// // ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	// ajax.send();
+	// ajax.onreadystatechange = function(){
+	// 	if(ajax.readyState==4 && ajax.status==200){
+	// 		var result = ajax.responseText;
+	// 		alert(result);
+	// 		alert('主程序')
+	// 	}
+	// }
+</script>
+
+<script>
+	var ajax = new XMLHttpRequest();
+	ajax.open('post','./ajax.php',true);
+	ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	ajax.send();
+	ajax.onreadystatechange = function(){
+		if(ajax.readyState==4 && ajax.status==200){
+			var result = ajax.responseText;
+			alert(result);
+			alert('主程序');
+		}
+	}
+</script>
+</html>

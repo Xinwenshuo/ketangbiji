@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="./3.jpg"  width="400" alt="" id="img">
+</body>
+	<script>
+		img = document.getElementById('img');
+		num = 2;
+		// alert(img);
+		setInterval(function(){
+			num++;
+			
+			img.src='./'+num+'.jpg';
+			if(num>=6){
+				num=2;
+			}
+		},3000);
+	</script>
+</html>

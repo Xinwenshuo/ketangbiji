@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0px;padding:0px;}
+		#box{width: 150px;height: 120px;position:absolute;top:0px;left:0px;display: none;
+		}
+		li{
+			list-style-type: none;width: 150px;height: 40px;background: #f7f7f7;border-bottom: 1px dashed green;text-align: center;line-height: 40px;
+		}
+		li:hover{background:#a6a6a6;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<li>复制</li>
+		<li>粘贴</li>
+		<li>剪切</li>
+		<li>删除</li>
+		<li>刷新</li>
+	</div>
+</body>
+<script>
+	document.onmousedown = function(e){
+		var e = e || event;
+		alert(e.button);
+		if(e.button ==2){
+			alert('you')
+		}
+	}
+	// var box = document.getElementById('box');
+	// document.oncontextmenu = function(e){
+	// 	var e = e || event;
+	// 	document.title="X:"+e.clientX+"Y:"+e.clientY;
+
+	// 	box.style.display="block";
+	// 	box.style.left = e.clientX+"px";
+	// 	box.style.top = e.clientY +"px";
+
+	// 	return  false;
+	// }
+	// document.onclick = function(){
+	// 	box.style.display = "none";
+	// }
+</script>
+</html>

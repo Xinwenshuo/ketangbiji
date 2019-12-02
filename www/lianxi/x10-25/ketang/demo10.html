@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="zan()">点赞</button>
+</body>
+<script>
+	//匿名函数
+	// var test = function(){
+	// 	alert('匿名函数');
+	// }
+	// test();
+	// function demo(){
+	// 	console.log(12);
+	// }
+	// setInterval(demo,1000);
+	// setInterval(function(){
+	// 	console.log('好帅哈')
+	// },1000);
+	// var result = prompt('请输入','hhhh');
+	// document.write(result)
+	// function login(){
+	// 	var result = prompt('输入用户名','SB250')
+	// 	if(result == '大傻x'){
+	// 		alert('欢迎');
+	// 	}else{
+	// 		login();
+	// 	}
+	// }
+	// login();
+	//子函数
+	// function parent(){
+	// 	//子函数都是局部变量
+	// 	function son(){
+	// 		alert(2);
+	// 	}
+	// 	son();
+	// }
+	// parent();
+	//自调函数
+
+	// var func = function(){alert('我')}();
+	// var func = function(){
+	// 	alert('test');
+	// };
+	// (function ss(){
+	// 	alert('slls');
+	// })();
+	// function test(){
+	// 	alert('大国实力');
+	
+	// 	test = function(){
+	// 		alert('听说2011年世俱会在中国举行');
+	// 	}
+	// }
+	// test();
+	// test();
+	// test();
+	function zan(){
+		alert('赞!');
+		zan = function(){}
+	}
+
+</script>
+</html>

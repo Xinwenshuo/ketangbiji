@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//创建时间
+	var date = new Date();
+	// alert(typeof date);
+	// alert(date);
+	//获取年
+	//获取1900年到现在的年份
+	//2019-1900 = 199
+	// year = date.getYear();
+	// alert(year);
+	year = date.getFullYear();
+	// alert(year);
+	document.write('年:'+year+'<br>');
+	//获取月
+	month = date.getMonth();
+	document.write('月:'+month+"<br>");
+	//获取日
+	day = date.getDate()
+	document.write('日:'+day+'<br>');
+	//获取小时
+	hour = date.getHours();
+	document.write('小时:'+hour+'<br>');
+	//获取分钟
+	minute = date.getMinutes();
+	document.write('分钟:'+minute+'<br>');
+	//获取秒
+	seconds = date.getSeconds();
+	document.write('秒:'+seconds+'<br>');
+	//获取毫秒
+	milliseconds = date.getMilliseconds();
+	document.write('毫秒:'+milliseconds+'<br>');
+	//获取星期
+	weekday = date.getDay();
+	document.write('星期:'+weekday+'<br>');
+	//获取时间戳
+	time = date.getTime();
+	document.write("时间戳:"+time+'<br>');
+	//获取时间差 单位是分钟
+	offsettime = date.getTimezoneOffset();
+	document.write('时间差:'+offsettime+'<br>')
+
+</script>
+</html>

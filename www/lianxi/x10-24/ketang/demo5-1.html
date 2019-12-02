@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<input type="checkbox" name="" id="">郭冰|胡飞<br>
+	<button onclick="select(true)">全选</button>
+	<button onclick="select(false)">不全选</button>
+	<button onclick="fan()">返选</button>
+	<button onclick="sha()">啥都行</button>
+</body>
+	<script>
+		inputs = document.getElementsByTagName('input');
+		num=0;
+		function select(bool){				
+			for(i=0;i<inputs.length;i++)
+				inputs[i].checked = bool
+		}
+		function fan(){
+			for(i=0;i<inputs.length;i++){
+				inputs[i].checked = !inputs[i].checked;
+			}
+		}
+		function sha(){
+			num++;
+			if(num %2 ==1){
+				bool = true;
+			}else{
+				bool =false;
+			}
+			for(i=0;i<inputs.length;i++){
+				inputs[i].checked = bool;
+			}
+		}
+	</script>
+</html>

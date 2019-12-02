@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;height: 100px;background: pink;position: absolute;left: 0px;top: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" style ="left:0px;top:0px;">
+		
+	</div>
+</body>
+	<script>
+		box = document.getElementById('box');
+		num = 10;
+		setInterval(function(){
+			// console.log(num);
+			// console.log(box.style.left);
+			// console.log(typeof  parseInt(box.style.left));
+			box.style.left = parseInt(box.style.left)+ num +'px';
+		},100);
+	</script>
+</html>

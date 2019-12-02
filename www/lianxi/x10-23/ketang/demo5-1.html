@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#imgid{
+			width: 100px;position: relative;
+		}
+	</style>
+</head>
+<body>
+	<img src="./2.gif" alt="" id="imgid">
+</body>
+	<script>
+		img = document.getElementById('imgid');
+		document.onmousemove = function(e){
+			img.style.left=e.clientX+'px';
+			img.style.top=e.clientY+'px';
+		}
+	</script>
+</html>

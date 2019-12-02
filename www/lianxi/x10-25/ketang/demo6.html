@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//全局变量
+		num = 10;
+		function demo(){
+			//函数内可以直接使用全局变量
+			alert(num);
+			num = 20;
+			alert(num);
+		}
+		// demo();
+		// alert(num);
+		function test(){
+			//局部变量
+			//在函数内使用var关键字声明的变量就是局部变量
+			var a = 10;
+			alert(a);
+		}
+		// test();
+		// alert(a);
+		var num = 10;
+		function test(){
+			// var num;
+			alert(num);
+			var num = 30;
+			alert(num);
+		}
+		// test();
+		// alert(num);
+		function func(c){
+			alert(c);
+		}
+		func(2);
+		alert(c);
+</script>
+</html>

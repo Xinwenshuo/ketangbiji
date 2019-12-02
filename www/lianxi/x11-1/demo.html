@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div{width: 200px;height: 200px;border:1px solid red;}
+		#div1{width: 200px;height: 200px;border:1px solid red;}
+		#div2{width: 200px;height: 200px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	<p>1111111111111111</p>
+	<p>2222222222222222</p>
+	<p>3333333333333333</p>
+	<p>4444444444444444</p>
+	<p>5555555555555555</p>
+	<div id="div">
+		<button onclick="func(this)">sdfs</button>
+	</div>
+	<div id="div1">
+		
+	</div>
+	<div id="div2">
+		
+	</div>
+</body>
+<script>
+	var div = document.createElement('div');
+	div.innerHTML = 'SDFSDFSAF';
+	document.body.appendChild(div);
+	//appendChild appendChild appendChild
+	document.body.insertBefore(div,document.body.firstChild);
+	//firstChild firstChild firstChild
+	document.body.insertBefore(div,document.body.children[2]);
+	//children children children 
+	function func(obj){
+		var des = document.getElementById('div1')
+		var des = document.getElementById('div2')
+		des.appendChild(obj);
+	}
+</script>
+</html>

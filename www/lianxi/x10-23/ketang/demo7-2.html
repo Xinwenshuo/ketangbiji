@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="check()">单次</button>
+	<button onclick="click1()">多次</button>
+</body>
+	<script>
+		Timeout = setTimeout(function(){
+			console.log('郭冰');
+		},3000);
+		setTimeout(test,2100);
+			function test(){
+				console.log('臭不要脸');
+			}
+		Interval = setInterval(function(){
+			console.log('可不嘛');
+		},1000);
+		Interval1 = setInterval(a,2000);
+			function a(){
+				console.log('尤其是胡飞');
+			}
+		function check(){
+			clearTimeout(Timeout);
+		}
+		function click1(){
+			clearInterval(Interval);
+			clearInterval(Interval1);
+		}
+	</script>
+</html>

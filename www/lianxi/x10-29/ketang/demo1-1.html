@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div">抽奖</div>
+	<div id="box" onclick="go()">开始</div>
+</body>
+<script>
+	var div = document.getElementById('div');
+	var box = document.getElementById('box');
+	var arr = ['11111','222222','4444444444','45555','666666'];
+	var timmer;
+	function func(){
+		num = Math.floor(Math.random()*arr.length);
+		div.innerHTML = arr[num];
+		timmer = setTimeout(func,100);
+	}
+	function go(){
+		if(timmer == undefined){
+			func();
+			box.innerHTML = '停止';
+			// alert(1);
+		}else{
+			clearTimeout(timmer);
+			box.innerHTML = '开始';
+			timmer = undefined;
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// function demo(a,b,c){
+	// 	alert(a);
+	// 	alert(b);
+	// 	alert(c);
+	// }
+	// demo(1,3);
+	function demo(){
+		// arguments
+		console.log(arguments);
+		tmp = 0;
+		// for(key in arguments){
+		// 	tmp = tmp+arguments[key];
+		// }
+		for(i=0;i<arguments.length;i++){
+			tmp = tmp+arguments[i];
+		}
+		alert(tmp);
+	}
+	demo(1,2,3,4,5);
+	//func_num_args();//获取所有实参的个数
+	//func_get_args();//获取所有实参的内容以数组的形式返回
+	//func_get_arg(index);//根据数组下标拿出实参数组里面的值
+</script>
+</html>

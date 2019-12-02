@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="p1" onclick="box()">一系列设置</p>
+	<p id="p2" onclick="box1()">一揽子计划</p>
+</body>
+<script>
+	p = document.getElementById('p1');
+	p1 = document.getElementById('p2');
+	num = 1;
+	num1 = 1;
+	function box(){
+		num++;
+		if(num %2 ==0){
+			p.innerHTML = '一系列设置<br />音频设置<br>视频设置<br>';
+		}else{
+			p.innerHTML ='一系列设置';
+		}
+	}
+	function box1(){
+		num1++;
+		if(num1 %2 ==0){
+			p1.innerHTML = '一揽子计划<br />计划一<br />计划二<br />';
+		}else{
+			p1.innerHTML = '一揽子计划<br />';
+		}
+	}
+
+</script>
+</html>

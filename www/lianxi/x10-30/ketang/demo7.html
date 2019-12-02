@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="" id="" onchange="func(this)">
+		<option value="">--请选择--</option>
+		<option value="0">北京</option>
+		<option value="1">上海</option>
+		<option value="2">广州</option>
+		<option value="3">河北</option>
+	</select>省
+	<select name="" id="cid">
+		<option value="">--请选择--</option>
+	</select>市/区
+</body>
+<script>
+	var cid = document.getElementById('cid');
+	function func(a){
+		// alert(obj);
+		// alert(obj.value);
+		val = a.value;
+		city = [];
+		city[0] = ['朝阳','海淀','昌平','东城','西城','顺义','怀柔'];
+		city[1] = ['闸北','静安','松江','浦东','浦西'];
+		city[2] = ['广州','深圳','东莞','惠州','汕头','潮汕'];
+		city[3] = ['承德','衡水','保定','唐山','邢台','邯郸','张家口','秦皇岛'];
+		cid.length = 1;
+		for(var i =0;i<city[val].length;i++){
+			console.log(city[val][i]);
+			op = new Option(city[val][i],i);
+			console.log(op);
+			cid.add(op);
+		}
+	}
+</script>
+</html>

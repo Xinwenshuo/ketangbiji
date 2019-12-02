@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 200px;height: 200px;background: red;margin: 30px;
+		}
+		#div1{
+			width: 200px;height: 200px;background:cyan;margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" onclick="test(event,this)"></div>
+	<div id="div1"></div>
+</body>
+<script>
+	function test(e,obj){
+		// alert(e);
+		document.title = "x:"+e.clientX+"y:"+e.clientY;
+		obj.innerHTML = '帅话';
+	}
+	var div1 = document.getElementById('div1');
+	div1.onclick = function(a){
+		var a = a ||event;
+		// if(a == undefined){
+			// a = event;
+			// alert(a);
+		// }
+		document.title = "x:"+a.clientX+"y:"+a.clientY;
+		this.innerHTML = '雅望';
+	}
+</script> 
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	用户名: <input type="text" name="name" id="inp"><font id="myfont"></font>
+</body>
+<script>
+	var inp = document.getElementById('inp');
+	var myfont = document.getElementById('myfont');
+	inp.onfocus = function(){
+		myfont.innerHTML = "请填写字母和数字下划线";
+		myfont.color = "#666";
+		myfont.size = 2;
+	}
+	inp.onblur = function(){
+		// alert(1);
+		str = inp.value;
+		if(str.match(/^\w{4,8}$/)==null){
+			myfont.innerHTML = '验证失败';
+			myfont.color = "red";
+			// alert(1);
+		}else{
+			myfont.innerHTML = "验证成功";
+
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0px;padding:0px;}
+		#div{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			overflow: hidden;
+			left: 800px;
+			top: 50px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<img src="./1.jpg" width="800px" id="img" alt="">
+	<div id="div">
+		<img src="./1.jpg" alt="">
+	</div>
+</body>
+<script>
+	var div = document.getElementById('div');
+	var img = document.getElementById('img');
+	img.onmousemove = function(e){
+		var e=  e || event;
+		div.scrollLeft = e.clientX*2;
+		div.scrollTop = e.clientY*2;
+		div.style.display = "block";
+	}
+	img.onmouseout = function(){
+		div.style.display = 'none'
+	}
+</script>
+</html>

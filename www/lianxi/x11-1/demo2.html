@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	<p><input type="checkbox" > 出售三手老王有意者请携带钱款到本人除领取~~~$2.5包邮<br/></p>
+	
+	<button onclick="select(true)">全选</button>
+	<button onclick="select(false)">全不选</button>
+	<button onclick="fanxuan()">反选</button>
+	<button onclick="del()">删除</button>
+</body>
+<script>
+	//找对象
+	inputs = document.getElementsByTagName('input');
+	console.log(inputs);
+
+	
+
+	//全选全不选函数
+	function select(bool){
+
+		for(i=0;i<inputs.length;i++){
+			
+			inputs[i].checked= bool;
+		}
+
+	}
+
+	//反选函数
+	function fanxuan(){
+		for(i=0;i<inputs.length;i++){
+			if(inputs[i].checked){
+				inputs[i].checked=false;
+			}else{
+				inputs[i].checked=true;
+			}
+			inputs[i].checked = !inputs[i].checked;
+		}
+	}
+	// function del(){
+	// 	for(i=0;i<inputs.length;i++){
+	// 		if(inputs[i].checked){
+	// 			var p = inputs[i].parentNode;
+	// 			p.parentNode.removeChild(p)
+	// 		}
+	// 		i--;
+	// 	}
+	// }
+	function del(){
+		for(var i = inputs.length-1;i>=0;i--){
+			if(inputs[i].checked){
+				var p = inputs[i].parentNode;
+				p.parentNode.removeChild(p);
+			}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text"><br>
+	<button onclick="ck()" id="box">点击获取验证码</button>
+</body>
+	<script>
+		box = document.getElementById('box');
+		function ck(){
+			box.disabled = true;
+			num = 60;
+			timme = setInterval(function(){
+				num--;
+				box.innerHTML = num+'秒后重新获取验证码';
+				if(num<=0){
+					clearInterval(timme);
+					box.disabled = false;
+					box.innerHTML = '再次获取验证码';
+				}
+			},100);
+		}
+	</script>
+</html>

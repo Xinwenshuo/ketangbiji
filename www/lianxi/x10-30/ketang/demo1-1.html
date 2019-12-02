@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0px;padding:0px;}
+		#div{
+			width: 300px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: -280px;
+			top: 50px;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var div = document.getElementById('div');
+	var num = -280;
+	var timmer ;
+	var timmer1 ;
+	div.onmouseenter = function(){
+		clearInterval(timmer1);
+		timmer = setInterval(function(){
+			div.style.left = num +'px';
+			num++;
+			if(num>=0){
+				clearInterval(timmer);
+			}
+		},10)
+	}
+	div.onmouseleave = function(){
+		clearInterval(timmer)
+		timmer1 = setInterval(function(){
+			div.style.left = num +"px";
+			num--;
+			if(num <=-280){
+				clearInterval(timmer1);
+			}
+		},10)
+	}
+</script>
+</html>

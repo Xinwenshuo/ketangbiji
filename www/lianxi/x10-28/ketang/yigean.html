@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#h{
+			font-size: 50px;text-align: center;
+		}
+		#div{
+			width: 500px;height: 350px;border: 1px solid #2bf666;
+			text-align: center;margin: 50px auto;font-size: 50px;
+			line-height: 350px;
+		}
+		#div1{
+			margin: 0px auto;width: 100px;height: 50px;border: 1px solid cyan;
+			text-align: center;font-size: 25px;line-height: 50px;cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h3 id="h">留不留级</h3>
+	<div id="div">翻拍</div>
+	<div onclick="box(1)" id="div1">开始</div>
+</body>
+<script>
+	div = document.getElementById('div');
+	num=0;
+	function box(a){
+		if(a = 1){
+			num +=1;
+		}
+		if(num ==1){
+			timmer = setInterval(function(){
+				arr = ['留级','不留']
+				a = Math.floor(Math.random()*arr.length);
+				div.innerHTML = arr[a];
+			},10)
+		}else if(num == 2){
+			clearInterval(timmer);
+			num = 0;
+		}
+	}
+</script>
+</html>

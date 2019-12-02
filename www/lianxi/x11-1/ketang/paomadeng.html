@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 	<p id="div" style='color:red;font-size:36px;'>郭冰大狮子</p> -->
+</body>
+<script>
+	// var div = document.getElementById('div');
+	div = "郭冰大狮子";
+	var num =0;
+	document.write(div);
+	timmer = setInterval(function(){
+		for(i=0;i<div.length;i++){
+			// console.log(i);
+			// console.log(div.innerHTML[i]);
+			// console.log(typeof div.innerHTML[i]);
+			// var p = div.innerHTML[i].
+			// console.log(div[i]);
+			// console.log(typeof div[i]);
+
+			// obj = {id:div[i]}
+			// obj[id].Color = "cyan";
+			// console.log(typeof obj);
+			// console.log(obj);
+			// for (var j = 0; j < obj.length; j++) {
+				// console.log(obj[j]);
+			// }
+			 // div[i].Color = "cyan";
+			
+			 str = "<font style = 'color:cyan'>"+div[num]+"</font>"
+	document.write(str);
+	 num++;
+		num=4;
+			// var arr[] =div.innerHTML[i];
+			// console.log(typeof arr[]);
+			// if(div[i]<=num){
+				
+				clearInterval(timmer);
+				
+				// div.innerHTML = '<p id="p">'+div.innerHTML[i]+'</p>';
+				// var p= document.getElementById('p'); 
+				console.log(div[i]);
+				// div[num].Color = "cyan";
+			// 	console.log(p);
+			// 	console.log(div.innerHTML);
+			// }
+		// 
+		}
+	},1000)
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onkeydown = function(e){
+		var e = e || event;
+		// alert(e.keyCode);
+		// alert(e.shiftKey);
+		// alert(e.ctrlKey);
+		// alert(e.altKey);
+		console.log('下');
+	}
+	document.onkeyup = function(e){
+		console.log('上');
+	}
+	document.onkeypress = function(){
+		console.log('一次');
+	}
+</script>
+</html>

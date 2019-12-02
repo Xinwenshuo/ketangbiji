@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text"><button onclick="search(this)">搜索</button>
+	<table border="1" align="center" width="800" id="ta">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Sex</td>
+			<td>Age</td>
+			<td>Cyit</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>胡飞</td>
+			<td>女</td>
+			<td>33</td>
+			<td>山西</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>郭冰</td>
+			<td>母</td>
+			<td>33</td>
+			<td>山西</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>连宏宝</td>
+			<td>公</td>
+			<td>33</td>
+			<td>吉林</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>赵铁刚</td>
+			<td>男</td>
+			<td>33</td>
+			<td>哈尔滨</td>
+		</tr>
+	</table>
+</body>
+<script>
+	var ta = document.getElementById('ta');
+
+	function search(obj){
+
+		var inp = obj.previousSibling.value;
+
+		for(var i = 0;i<ta.rows.length;i++){
+			// console.log(ta.rows[i])
+			ta.rows[i].bgColor = '#fff'
+			for(var j = 0;j<ta.rows[i].cells.length;j++){
+				if(ta.rows[i].cells[j].innerHTML.indexOf(inp)!=-1){
+					ta.rows[i].bgColor = 'yellow';
+				}
+			}
+		}
+	}
+</script>
+</html>

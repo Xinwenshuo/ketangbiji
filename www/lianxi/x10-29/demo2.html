@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<button id="btn1">单机</button>
+	<button id="btn2">双机</button>
+	<button id="btn3">哒哒哒哒哒哒多多多多多</button>
+</body>
+<script>
+	var btn = document.getElementById('btn1')
+	var btn = document.getElementById('btn2')
+	var btn = document.getElementById('btn');
+	btn1.onclick = function(){
+		alert('点击');
+	}
+	btn2.ondblclick = function(){
+		alert('双击');
+	}
+	btn.onmousedown = function(){
+		console.log('按下鼠标事件');
+	}
+	btn.onmouseup = function(){
+		console.log('弹起鼠标事件');
+	}
+	btn.onclick = function(){
+		console.log('点击了一次');
+	}
+	document.onmousemove =function(e){
+		this.title= "X:"+e.clientX+"Y"+e.clientY;
+	}
+</script>
+</html>

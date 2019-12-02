@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0px;padding:0px;}
+		#div{
+			width: 400px;
+			height: 400px;
+			background: red;
+			position: relative;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var div = document.getElementById('div');
+	var box = document.getElementById('box');
+	box.onclick = function(e){
+		alert('我点了蛋')
+		e.cancelBubble=true;
+	}
+	div.onclick = function(e){
+		alert('韭菜')
+	}
+</script>
+</html>

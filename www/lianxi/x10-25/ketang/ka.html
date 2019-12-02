@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.li{
+			width: 200px;height: 50px;list-style:none ;float: left;background: #666;
+			text-align: center;line-height: 50px;cursor: pointer;
+		}
+		.div{
+			width: 600px;height: 500px;border: 1px solid #999;background: #f6f6f6;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="li" onclick="func(0)">全部订单</li>
+		<li class="li" onclick="func(1)">未付款</li>
+		<li class="li" onclick="func(2)">已付款</li>
+		<div class="div" style="display:block">浪哥版 娃娃 1个  $100.00<br/>
+		小辛版 香皂 1个  $ 5.00 <br/>
+		子龙购买皮鞭 1个 $ 10.00<br/>
+		骚浪版 充气娃娃 10个 $2.00<br/></div>
+		<div class="div" style="display:none">小辛版 香皂 1个  $ 5.00 <br/>
+		子龙购买皮鞭 1个 $ 10.00<br/></div>
+		<div class="div" style="display:none">浪哥版 娃娃 1个  $100.00<br/>
+		骚浪版 充气娃娃 10个 $2.00<br/></div>
+	</ul>
+</body>
+<script>
+	divs = document.getElementsByTagName('div');
+	// console.log(divs);
+	function func(a){
+		// alert(a);
+		for(i = 0;i<divs.length;i++){
+			if(a == i){
+				divs[i].style.display='block';
+			}else{
+				divs[i].style.display='none';
+			}
+		}
+	}
+</script>
+</html>

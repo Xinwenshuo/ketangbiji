@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;padding: 0px;
+		}
+		#div{
+			width: 200px;height: 200px;background: red;position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="div" style="left:0px"></div>
+</body>
+<script>
+	div = document.getElementById('div');
+	function box(){
+		num = 50;
+		num1 = 50
+		tmm = setInterval(function(){
+			num--;
+			div.style.left = parseInt(div.style.left)+num+'px';
+			if(num ==0){
+
+				clearInterval(tmm);
+				box1();
+			}
+		},60);
+		function box1(){
+			tmm1 = setInterval(function(){
+				num1--;
+				div.style.left = parseInt(div.style.left)-num1+'px';
+				// console.log(num1);
+			if(num1 ==0){
+				clearInterval(tmm1);
+				box();
+			}
+			},60);
+		}
+	}
+	box();
+</script>
+</html>

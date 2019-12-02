@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div">给某某某找的对象</div>
+	<button onclick="box(1)">开始</button>
+	<button onclick="box(2)">停止</button>
+</body>
+<script>
+	div = document.getElementById('div');
+	function box(a){
+		if(a ==1){
+		tmme = setInterval(function(){
+			arr = ['郭冰','胡飞','连宏宝','赵铁刚','高志博']
+			a = Math.floor(Math.random()*arr.length);
+			name = arr[a];
+			div.innerHTML = name;
+		},100)
+
+		}else{
+			clearInterval(tmme);
+		}
+	}
+</script>
+</html>

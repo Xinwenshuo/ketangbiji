@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="inp" value="开手机锁上瘾">
+	<select name="" id="" onchange="check()">
+		<option value="">北京</option>
+		<option value="">上海</option>
+		<option value="">广州</option>
+		<option value="">深圳</option>
+	</select>
+	<input type="radio" name="sex" value="0" onchange="check()">女
+	<input type="radio" name="sex" value="1" onchange="check()">男
+	<input type="radio" name="sex" value="2" onchange="check()">保密
+	<input type="radio" name="sex" value="3" onchange="check()">少狼
+	<input type="checkbox" name="lovegood" value="0" onchange="check()">大骚浪
+	<form action="http://www.4399.com" onsubmit="return test()" onreset="return confirm('你确定要重置吗?')">
+		用户名: <input type="text" name="username" id="username" onblur="user()"><br>
+		密码: <input type="password" name="password" id="pwd" onblur="sss()"><br>
+		<input type="submit" value="提交">
+		<input type="reset" value="重置">
+	</form>
+</body>
+<script>
+	// var bool = confirm('你确定要重置吗?')
+	// alert(bool);
+	var inp = document.getElementById('inp');
+	var username = document.getElementById('username');
+	var pwd = document.getElementById('pwd');
+	inp.onselect=function(){
+		alert('选中事件')
+	}
+	function check(){
+		alert('改变了选项')
+	}
+	function user(){
+		var str = username.value;
+		if(str.match(/^\w{4,8}$/)==null){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	function sss(){
+		var pstr = pwd.value;
+		if(pstr.length >=6){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	function test(){
+		return user()&& sss();
+	}
+</script>
+</html>

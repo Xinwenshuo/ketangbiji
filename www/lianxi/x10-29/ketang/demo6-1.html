@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="./111.jpg" alt="" id="img">
+</body>
+<script>
+	var img = document.getElementById('img');
+	img.onload = function(){
+		alert('加载成功');
+	}
+	img.onerror = function(){
+		img.src = "./3.jpg";
+		alert("加载失败");
+	}
+</script>
+</html>

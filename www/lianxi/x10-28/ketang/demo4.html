@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>倒计时</h1>
+	<hr>
+	<div id="box"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var seconds = 100;
+	function run(){
+		if(seconds <=0){
+			box.innerHTML = "<button>抢购</button>";
+			clearInterval(timmer);
+			return;
+		}
+		var h = Math.floor(seconds/3600);
+		var sy = seconds-h*3600;
+		var i = Math.floor(sy/60);
+		var s = sy-i*60;
+		h = h<10?'0'+h:h;
+		i = i<10?'0'+i:i;
+		s = s<10?'0'+s:s;
+		var timeStr = '距离本次团购还要'+h+'小时'+i+'分钟'+s+'秒';
+		box.innerHTML = timeStr;
+		seconds--;
+	}
+	run();
+	var timmer = setInterval(run,100);
+
+</script>
+</html>

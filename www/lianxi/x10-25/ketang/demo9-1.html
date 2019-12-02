@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h4 onclick="func(1)">1111111</h4>
+		<ul id="lu1" style="display:none"> 
+			<li>222222</li>
+			<li>222222</li>
+		</ul>
+	<h4 onclick="func(2)">33333333</h4>
+		<ul id="lu2" style="display:none">
+			<li>4444444</li>
+			<li>4444444</li>
+		</ul>
+	<h4 onclick="func(3)">55555555</h4>
+		<ul id="lu3" style="display:none">
+			<li>66666666</li>
+			<li>66666666</li>
+		</ul>
+</body>
+<script>
+	function func(a){
+		ul = document.getElementById('lu'+a)
+			if(ul.style.display=="none"){
+				ul.style.display='block';
+			}else{
+				ul.style.display="none";
+			}
+		
+	}
+</script>
+</html>
