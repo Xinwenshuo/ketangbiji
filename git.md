@@ -76,7 +76,7 @@
 	3. ls 查看目录
 ## 分支管理
 1. 创建与合并分支
-	1. git checkout -- kev 创建并打开一个分支命名kev
+	1. git checkout -b kev 创建并打开一个分支命名kev
 	2. git branch 查询当前分支
 	3. git checkout master 切换到master分支
 	4. git merge kev 合并分支
