@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue实例</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<p>
+			{{message}}
+		</p>
+
+
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		var dataObj = {
+			title: 'Hello Vue',
+			message: '你好同志'
+		}
+
+		//创建Vue实例
+		var vm = new Vue({
+			el:'#app',
+			/*data: {
+				title: 'Hello Vue',
+				message: '你好同志'
+			}*/
+			data: dataObj
+		});
+
+		console.log(vm.title);
+		console.log(vm.message);
+
+		dataObj.title = '同志';
+
+		vm.message = '同志们，冲啊';
+
+		console.log(dataObj.message);
+
+
+		//vm.article = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum est possimus unde, quasi sequi velit nam laudantium rerum repudiandae adipisci delectus sapiente, in, dolore, at iste. Eligendi, ad quisquam repellat.";
+
+		//console.log(dataObj);
+
+
+		console.log(vm.$el); //document.getElementById('app');
+
+		console.log(vm.$data);
+		console.log(vm.$data.title === vm.title);
+
+		//监听某个数据的变化
+		vm.$watch('title', function(val){
+			console.log('啊，我变了:'+val);
+		})
+
+
+	</script>
+</body>
+</html>

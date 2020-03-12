@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态组件</title>
+	<link rel="stylesheet" href="./tab-style.css">
+</head>
+<body>
+	<div id="app">
+		<h1>动态组件</h1>
+		<hr>
+
+		<button v-for="tab in tabs" :key="tab" :class="['tab-button', {active: tab === currentTab}]" @click="setTab(tab)"> {{tab}} </button>
+
+		<component :is="currentTabComponent"></component>
+
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件
+		Vue.component('tab-home', {
+			template: `
+			<div class="tab">Home 组件 </div>
+			`
+		});
+
+		Vue.component('tab-posts', {
+			template: `
+			<div class="tab">posts 组件 </div>
+			`
+		});
+
+		Vue.component('tab-article', {
+			template: `
+			<div class="tab">article 组件 </div>
+			`
+		});
+
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				tabs: ['Home', 'Posts', 'Article'],
+				currentTab: 'Home'
+			},
+			methods: {
+				setTab: function(val){
+					this.currentTab = val;
+				}
+			},
+			computed: {
+				currentTabComponent: function(){
+					return 'tab-'+this.currentTab.toLowerCase();
+				}
+			}
+		})
+	</script>
+</body>
+</html>

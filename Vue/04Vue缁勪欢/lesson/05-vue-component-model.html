@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model 模板中</title>
+</head>
+<body>
+	
+	<div id="app">
+		<h1>v-model在组件上使用</h1>
+		<hr>
+
+		<p>{{ message }}</p>
+		<input type="text" v-model="message">
+
+		<hr>
+
+		<my-component v-model="message"></my-component>
+	</div>
+
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件
+		Vue.component('my-component', {
+			props: ['value'],
+			methods: {
+				inputFn: function(event){
+					this.$emit('input', event.target.value)
+				}
+			},
+			template: `
+			<div> 
+				<input type="text" :value="value" @input="inputFn($event)">
+				<p> {{ value }} </p>
+			</div>
+			`
+		})			
+
+		//创建Vue 实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message: '同志你好'
+			}
+		})
+	</script>
+</body>
+</html>

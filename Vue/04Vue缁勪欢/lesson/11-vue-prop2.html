@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prop的一些问题</title>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<h1>prop的一些问题</h1>
+		<hr>
+
+		<my-component item-name="阿波罗计划" item-address="中国北京" title="你好" class="active"> </my-component>
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件实例
+		Vue.component('my-component', {
+			props: ['itemName', 'item-address'],
+			data: function(){
+				return {
+					myItemName: this.itemName
+				}
+			},
+			methods: {
+				changeItemName: function(){
+					this.itemName = '我是新的值';
+				}
+			},
+			template: `
+				<div title="hello" class="item">
+					<p>{{ myItemName }}</p>
+					<p>{{ itemAddress }}</p>
+					<input type="text" v-model="myItemName"/>
+					<button @click="changeItemName">change</button>
+				</div>
+			`
+		})	
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

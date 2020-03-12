@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态组件</title>
+	<link rel="stylesheet" href="./tab-style.css">
+</head>
+<body>
+	<div id="app">
+		<h1>动态组件 keep-alive</h1>
+		<hr>
+
+		<button v-for="tab in tabs" :key="tab" :class="['tab-button', {active: tab === currentTab}]" @click="setTab(tab)"> {{tab}} </button>
+		<keep-alive>
+			<component :is="currentTabComponent"></component>
+		</keep-alive>
+
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件
+		Vue.component('tab-home', {
+			template: `
+			<div class="tab">Home 组件 </div>
+			`
+		});
+
+		Vue.component('tab-posts', {
+			data: function(){
+				return {
+					posts: [
+						{id:1, title:"静夜思", content:'床前明月光，疑是地上霜。'},
+						{id:2, title:"春晓", content:'春眠不觉晓，处处闻啼鸟。'},
+						{id:3, title:"登黄鹤楼", content:'白日依山尽，黄河入海流。'}
+					],
+					selectedPost: null,
+				}
+			},
+			created: function(){
+				console.log('tab-posts被创建了');
+			},
+			beforeMount: function(){
+				this.selectedPost = this.posts[0];
+			},
+			activated: function(){
+				console.log('tab-posts activated');
+			},
+			deactivated: function(){
+				console.log('tab-posts deactivated ')
+			},
+			destroyed: function(){
+				console.log('tab-posts被销毁了');
+			},
+
+			template: `
+			<div class="posts-tab tab">
+				<ul class="posts-sidebar">
+					<li 
+						v-for="post in posts" 
+						:key="post.id" 
+						:class="{selected: post === selectedPost}" 
+						@click="selectedPost = post" 
+					> 
+						{{post.title}} 
+					</li>
+				</ul>
+				<div class="selected-post-container">
+					<div class="selected-post">
+						<h2> {{ selectedPost.title }} </h2>
+						<div>
+							<p> {{ selectedPost.content }} </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			`
+		});
+
+		Vue.component('tab-article', {
+			template: `
+			<div class="tab">article 组件 </div>
+			`
+		});
+
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				tabs: ['Home', 'Posts', 'Article'],
+				currentTab: 'Home'
+			},
+			methods: {
+				setTab: function(val){
+					this.currentTab = val;
+				}
+			},
+			computed: {
+				currentTabComponent: function(){
+					return 'tab-'+this.currentTab.toLowerCase();
+				}
+			}
+		})
+	</script>
+</body>
+</html>

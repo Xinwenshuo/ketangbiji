@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue实例 计算属性 方法 侦听器</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="num1"><br>
+		<input type="text" v-model="num2"><br>
+		<button v-on:click="sumFn">计算</button>
+		<div> {{ sum }} </div>
+		<input type="text" v-model="message"><br>
+
+		<input type="text" v-model="firstName">
+		<input type="text" v-model="lastName">
+		<br>
+		<div>{{fullName}}</div>
+		<hr>
+
+		<p>{{ message }}</p>
+		<p>{{ reverseMessage }}</p>
+		<p>{{ reverseMessageFn() }}</p>
+		
+
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				num1: '',
+				num2: '',
+				sum: '',
+				message: '你好同志，加入我们吧',
+				firstName:'宋',
+				lastName:'江',
+			},
+			computed: {
+				reverseMessage: function(){
+					return this.message.split('').reverse().join('');
+				},
+				fullName: function(){
+					return this.firstName+this.lastName;
+				}
+			},
+			methods: {
+				sumFn: function(){
+					this.sum = Number(this.num1) + Number(this.num2);
+				},
+				reverseMessageFn: function(){
+					return this.message.split('').reverse().join('');
+				}
+			},
+			watch: {
+				message: function(val){
+					console.log('message属性发生了变化，变成了 '+val);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

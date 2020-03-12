@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件事件特性</title>
+	<style>
+		.blog-post{
+			padding: 20px;
+			width: 600px;
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>组件 事件的特性</h1>
+		<hr>
+		<h2>上层组件</h2>
+		<p>{{ message }}</p>
+		
+		<hr>
+		<blog-post @click.native="clickFn" v-bind:message="message" @update:message="message = $event"></blog-post>
+
+		<blog-post :message.sync="message"></blog-post>
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//定义组件实例
+		Vue.component('blog-post', {
+			props: ['message'],
+			data: function(){
+				return {
+					newMessage: this.message
+				}
+			},
+			watch: {
+				newMessage: function(){
+					this.$emit('update:message', this.newMessage);
+				}
+			},
+			template: `
+				<div class="blog-post">
+					<h2>blog-post</h2>
+					<p>{{ newMessage }}</p>
+					<input type="text" v-model="newMessage" />
+				</div>
+			`
+		})
+
+		//创建Vue实例
+		new Vue({
+			el: '#app',
+			data: {
+				message:'哈哈哈，同志们好'
+			},
+			methods: {
+				clickFn: function(){
+					console.log('我被click了');
+				}
+			}
+		})
+	</script>
+</body>
+</html>

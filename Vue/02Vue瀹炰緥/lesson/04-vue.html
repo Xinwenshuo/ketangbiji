@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue实例的生命周期</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<p>
+			{{ message }}
+		</p>
+
+		<input type="text" v-model="message">
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				title:'Vue实例生命周期',
+				message: '你好同志，赶紧加入我们'
+			},
+			beforeCreate: function(){
+				console.log('beforeCreate');
+			},
+			created: function(){
+				console.log('created');
+			},
+			beforeMount: function(){
+				console.log('beforeMount');
+			},
+			mounted: function(){
+				console.log('mount');
+			},
+			beforeUpdate: function(){
+				console.log('befroeUpdate');
+			},
+			updated: function(){
+				console.log('updated');
+			},
+			beforeDestroy: function(){
+				console.log('beforeDestory');
+			},
+			destroyed: function(){
+				console.log('destroyed');
+			}
+		})
+	</script>
+</body>
+</html>

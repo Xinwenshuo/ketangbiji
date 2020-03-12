@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 组件 表格 DOM模板特性</title>
+	<style>
+		.table-container {
+			width: 800px;
+			border-collapse: collapse;
+		}
+		.table-container td {
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		.table-container th {
+			padding: 10px;
+			border: 1px solid #ccc;
+			background-color: #f0f0f0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>Vue 组件 表格 </h1>
+		<hr>
+		
+
+		<table class="table-container">
+			<tr>
+				<th>ID</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>地址</th>
+				<th>操作</th>
+			</tr>
+
+			<tr is="row-item" v-for="item in items" :key="item.id" :item="item" @remove="execRemove"></tr>
+		</table>
+
+		<br>
+		<br>
+		<br>
+
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td><input type="text" v-model="itemName"></td>
+			</tr>
+			<tr>
+				<td>年龄</td>
+				<td><input type="text" v-model="itemAge"></td>
+			</tr>
+			<tr>
+				<td>住址</td>
+				<td><input type="text" v-model="itemAddress"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button @click="addItem">添 加</button>
+				</td>
+			</tr>
+		</table>
+		
+
+	</div>
+	<script type="text/x-template" id="row-item-template">
+		
+		
+	</script>
+
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//定义对象 组件的选项
+		var rowItemComponent = {
+			props: {
+				item: Object
+			},
+			methods: {
+				removeItem: function(item){
+					this.$emit('remove', item);
+				}
+			},
+			template: `
+			<tr>
+				<td> {{ item.id }} </td>
+				<td> {{ item.name }} </td>
+				<td> {{ item.age }} </td>
+				<td> {{ item.address }} </td>
+				<td> <button @click="removeItem(item)">删 除</button> </td>
+			</tr>
+			`
+		};
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{id: 1, name: '赵子龙', age: 29, address:'石家庄'},
+					{id: 2, name: '吕布', age: 59, address:'包头'},
+					{id: 3, name: '孙悟空', age: 1059, address:'连云港'},
+					{id: 4, name: '贾宝玉', age: 19, address:'南京'}
+				],
+				itemName: '',
+				itemAge: '',
+				itemAddress: '',
+				newItemId: 5
+			},
+			methods: {
+				addItem: function(){
+					this.items.push({
+						id: this.newItemId ++,
+						name: this.itemName,
+						age: this.itemAge,
+						address: this.itemAddress
+					});
+
+					this.itemName = this.itemAge = this.itemAddress = '';
+				},
+				execRemove: function(val) {
+					var index = this.items.indexOf(val); //计算要删除的项目的索引
+					this.items.splice(index, 1);
+				}
+			},
+			//template: '#row-item-template',
+			components: {
+				'row-item': rowItemComponent
+			}
+		});
+
+	</script>
+</body>
+</html>

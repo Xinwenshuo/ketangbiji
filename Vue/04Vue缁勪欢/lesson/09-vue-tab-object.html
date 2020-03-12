@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态组件</title>
+	<link rel="stylesheet" href="./tab-style.css">
+</head>
+<body>
+	<div id="app">
+		<h1>动态组件-绑定动态组件对象</h1>
+		<hr>
+
+		<button v-for="tab in tabs" :key="tab.id" :class="['tab-button', {active: tab === currentTab}]" @click="setTab(tab)"> {{tab.name}} </button>
+	
+		<keep-alive>
+			<component :is="currentTab.component" class="tab"></component>
+		</keep-alive>
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+
+		var tabs = [
+			{
+				id: 1,
+				name:'Home',
+				component: {
+					template: `
+					<div>Home 组件</div>
+					`
+				},
+			},
+			{
+				id: 2,
+				name:'Posts',
+				component: {
+					template: `
+					<div>Posts 组件</div>
+					`
+				},
+			},
+			{
+				id: 3,
+				name:'Article',
+				component: {
+					template: `
+					<div>Article 组件</div>
+					`
+				},
+			}
+		]
+		
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				tabs: tabs,
+				currentTab: tabs[0]
+			},
+			methods: {
+				setTab: function(val) {
+					this.currentTab = val;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

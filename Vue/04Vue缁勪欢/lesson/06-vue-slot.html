@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插槽</title>
+	<style>
+		.alert-box {
+			margin-top: 10px;
+			padding: 20px;
+			color: #fff;
+			background-color: pink;
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>插槽</h1>
+		<hr>
+		
+		<alert-box>你存在问题</alert-box>
+		<alert-box>你的脸存在问题</alert-box>
+		<alert-box>你的鼻子存在问题</alert-box>
+		<alert-box> </alert-box>
+
+		<hr>
+
+		<article-page>
+			<template slot="header">
+				<h2>我的文章</h2>
+				<p>作者： 鲁迅</p>
+			</template>
+
+
+			<p>床前明月光</p>
+			<p>床前明月光</p>
+			<p>床前明月光</p>
+			<p>床前明月光</p>
+
+			<div slot="footer"><h2>MyFooter</h2></div>
+		</article-page>
+
+	</div>
+
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件
+		Vue.component('alert-box', {
+			template: `
+			<div class="alert-box">
+				<strong>Error! </strong>
+				<slot></slot>
+			</div>
+			`
+		});
+
+
+		//创建组件
+		Vue.component('article-page', {
+			template: `
+			<div>
+				<header>
+					<slot name="header"></slot>
+				</header>
+
+				<main>
+					<slot></slot>
+				</main>
+
+				<footer>
+					<slot name="footer"></slot>
+				</footer>
+			</div>
+			`
+		})
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+		})
+	</script>
+</body>
+</html>

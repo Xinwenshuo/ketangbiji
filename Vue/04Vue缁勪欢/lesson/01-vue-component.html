@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue组件</title>
+</head>
+<body>
+	<div id="app">
+		
+		<!--使用组件-->
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+
+		<hr>
+
+		<my-component inline-template>
+			<div>
+				<h2>{{ title }}</h2>
+				<p>{{ content }}</p>
+			</div>
+		</my-component>
+
+		<hr>
+
+		<your-component></your-component>
+		<your-component></your-component>
+
+		<hr>
+
+		<this-component></this-component>
+
+	</div>
+
+	<script type="text/x-template" id="your-template">
+		<p> {{ message }}</p>
+	</script>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		//创建组件
+		Vue.component('button-counter', {
+			data: function(){
+				return {
+					count: 0
+				}
+			},
+			methods: {
+				addCount: function(){
+					this.count ++;
+				}
+			},
+			template: `
+				<button @click='addCount'>点击我 {{count}}</button>
+			`
+		});
+
+
+		//创建组件  不推荐
+		Vue.component('my-component', {
+			data: function(){
+				return {
+					title: '我的组件演示',
+					content: '同志们勇敢地向前冲啊'
+				}
+			}
+		});
+
+
+		//创建组件
+		Vue.component('your-component', {
+			data: function() {
+				return {
+					message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae libero maiores dolorum. Ipsum soluta distinctio facilis eveniet reprehenderit. Hic nisi corporis libero illo cum corrupti, ex dignissimos voluptas reiciendis pariatur?'
+				}
+			},
+			template: '#your-template'
+		});
+
+		Vue.component('this-component', {
+			template: `
+				<div>
+					<h2>this-component</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, expedita?</p>
+				</div>
+			`
+		})
+
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

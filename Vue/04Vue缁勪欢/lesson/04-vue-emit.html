@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子组件向父组发送消息</title>
+	<style>
+		#app {
+			margin: 0 auto;
+			width: 800px;
+		}
+		.blog-post {
+			margin-top: 20px;
+			padding: 20px 0px;
+			border-bottom: 2px dashed #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>子组件向父组发送消息</h1>
+		<hr>
+		<div class="blog-container" :style="{fontSize: postFontSize+'em'}">
+			
+			<blog-post v-for="post in postList" v-bind="post" :key="post.id" @change-big-font="changeFont"></blog-post>
+
+		</div>
+	</div>
+
+	<script src="../dist/vue.js"></script>
+	<script>
+		
+		//定义组件
+		Vue.component('blog-post', {
+			props: ['title', 'content', 'authorName'],
+			methods: {
+				changeFont: function(){
+					this.$emit('change-big-font', 0.2)
+				}
+			},
+			template: `
+			<div class="blog-post">
+				<h2>{{ title }}</h2>
+				<p>作者： {{ authorName }}</p>
+				<p>{{ content }}</p>
+				<button @click="changeFont">字体放大</button>
+			</div>
+			`
+		});
+
+
+		//创建Vue实例
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				postFontSize: 1,
+				postList: [
+					{id: 1,authorName:'李白', title:'春晓', content:'春眠不觉晓，处处闻啼鸟。'},
+					{id: 2,authorName:'杜牧', title:'草', content:'离离原上草，一岁一枯荣。'},
+					{id: 3,authorName:'贺知章', title:'登黄鹤楼', content:'白日依山尽，黄河入海流。'},
+				]
+			},
+			methods: {
+				changeFont: function(val){
+					this.postFontSize += val;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
