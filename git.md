@@ -68,7 +68,7 @@
 1. 添加远程仓库
 	1. 在git网站上建一个仓库 learngit
 	2. git remote add origin git@github.com:Xinwenshuo/learngit.git 连接到远程仓库
-	3. git puch origin master 将内容推送到远程仓库中master分支
+	3. git push origin master 将内容推送到远程仓库中master分支
 2. 远程克隆
 	- 创建一个新的库记得勾选Initialize 会自动创建一个README.md文件
 	1. git clone git@github.com:michaelliao/gitskills.git 克隆一个本地库记得换地址

@@ -590,6 +590,6 @@ export default router
 
 ### 8. 生命周期
 
-- created()
-- mounted()
-- updated
+- created() 当组件被创建就会回调这个函数
+- mounted() 在将template的模板挂到DOM上的时候进行回调
+- updated() 再页面刷新就调用
